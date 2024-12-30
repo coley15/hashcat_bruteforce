@@ -34,14 +34,11 @@ def check_install():
 
     hashcat_path = input("Please enter the path to your hashcat file: ")
 
-    if hashcat_path is None:
-        print("---Hashcat is not installed or not in the systems PATH---\n")
-
-        exit()
-
-    else:
-        print(f"---Hashcat installation found within PATH successfully---\n")
+    try: 
         os.chdir(hashcat_path)
+
+    except Exception as e: 
+        print(F"Please enter a valid path to your hashcat directory: {e}")
 
 def run_hashcat(hashfile, wordlist):
     
